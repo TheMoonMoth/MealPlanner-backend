@@ -1,8 +1,8 @@
 const express = require('express');
-const app = express();
 const queries = require('./queries');
 const bodyParser = require('body-parser');
 
+const app = express();
 const PORT = 3000;
 
 app.use(bodyParser.json());
@@ -27,6 +27,26 @@ app.get('/ingredients/:ingredientId', (req, res) => {
     });
   })
     .catch(err => console.warn('Here\'s your problem -->', err));
+});
+
+app.post('/ingredients', (req, res) => {
+  queries.ingredients.create(req.body).then(ingredient => {
+    res.status(200).json({
+      message: 'Ingredient Added!',
+      ingredient,
+    });
+  })
+    .catch(err => console.warn('Here\'s your problem -->', err));
+});
+
+app.delete('/ingredients/:ingredientId', (req, res) => {
+  queries.ingredients.delete(req.params.ingredientId).then(ingredientId => {
+    res.status(200).json({
+      message: 'Ingredient deleted',
+      ingredientId,
+    });
+  })
+    .catch(err => console.warn('Problem deleting ingredient.'));
 });
 
 // *************************
