@@ -1,7 +1,7 @@
 {
   "name": "mealplanner-backend",
   "version": "0.0.1",
-  "description": "serving dbs of recipies and grocery lists",
+  "description": "serving dbs of recipes and grocery lists",
   "main": "app.js",
   "scripts": {
     "start": "node ./app.js",

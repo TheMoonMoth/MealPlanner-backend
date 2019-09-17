@@ -1,10 +1,10 @@
-require("dotenv").config();
+require('dotenv').config();
 
 module.exports = {
 
   development: {
     client: 'pg',
-    connection: "postgres://localhost/mealplannerdb"
+    connection: 'postgres://localhost/mealplannerdb'
   },
   production: {
     client: 'pg',
