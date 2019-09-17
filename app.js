@@ -51,6 +51,28 @@ app.get('/recipes/:recipeId', (req, res) => {
     .catch(err => console.warn('Here\'s your problem -->', err));
 });
 
+// *************************
+// *** MARKET END POINTS ***
+// *************************
+
+app.get('/markets', (req, res) => {
+  queries.markets.list().then(markets => {
+    res.json({
+      markets
+    });
+  })
+    .catch(err => console.warn('Here\'s your problem -->', err));
+});
+
+app.get('/markets/:marketId', (req, res) => {
+  queries.markets.read(req.params.recipeId).then(market => {
+    res.json({
+      market
+    });
+  })
+    .catch(err => console.warn('Here\'s your problem -->', err));
+});
+
 
 // ***********************
 // *** SERVER BUSINESS ***
@@ -59,3 +81,24 @@ app.get('/recipes/:recipeId', (req, res) => {
 app.listen(PORT, () => console.log(`MealPlanner-backend listening on PORT ${PORT}!`));
 
 module.exports = app;
+
+// *******************
+// *** DIRECTORIES ***
+// *******************
+
+const wildcards = {
+  ingredients: [
+    'Treat yo\'self!',
+    'You have to buy it sooner or later...',
+    'Get that small token for that special person.',
+  ],
+  recipes: [
+    '',
+  ],
+  markets: [
+    'Go healthy! Shop Sprouts',
+    'Staples baby! Trader Joe\'s time',
+    'Need more than food. Better do King Soopers',
+    'Just a couple of high quality items. Whole foods.'
+  ]
+};

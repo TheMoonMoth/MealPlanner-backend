@@ -44,5 +44,16 @@ module.exports = {
         .delete()
         .where('id', id);
     },
+  },
+  markets: {
+    list() {
+      return database('markets').select();
+    },
+    read(id) {
+      return database('markets')
+        .select()
+        .where('id', id)
+        .first();
+    },
   }
 };

@@ -10,6 +10,7 @@ exports.seed = (knex) => {
           times_bought: 0,
           rating: 0,
           available_market_id: [0],
+          note: '',
         },
         {
           id: 1,
@@ -18,6 +19,7 @@ exports.seed = (knex) => {
           times_bought: 0,
           rating: 10,
           available_market_id: [0, 1, 2],
+          note: '',
         },
       ]);
     })

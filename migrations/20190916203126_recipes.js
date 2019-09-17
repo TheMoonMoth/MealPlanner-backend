@@ -6,6 +6,7 @@ exports.up = (knex) => {
     table.integer('times_bought');
     table.integer('rating');
     table.specificType('available_market_id', 'integer ARRAY');
+    table.string('note');
   });
 };
 
